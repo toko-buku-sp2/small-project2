@@ -1,6 +1,5 @@
 import React from 'react';
 import {Form,Button} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
 
 const Login=()=>{
 
@@ -8,7 +7,7 @@ const Login=()=>{
         <Form>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Control type="email" placeholder="example@email.com" />
         </Form.Group>
       
         <Form.Group controlId="formBasicPassword">

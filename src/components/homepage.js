@@ -1,13 +1,33 @@
 import React from 'react';
-import {Dropdown, ButtonGroup} from 'react-bootstrap';
+import {Dropdown, Button, ButtonGroup,
+  InputGroup, FormControl, Container,Row,Col} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
 const Home =()=>{
     return(
-        <div>
+      <Container className="header">
+      <Row>
+      <Col>Logo Toko Buku</Col>
+      <Col>
+        <InputGroup className="mb-3">
+        <FormControl
+          placeholder="Recipient's username"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <InputGroup.Append>
+          <InputGroup.Text id="basic-addon2">
+          <Button>
+          </Button>
+          </InputGroup.Text>
+        </InputGroup.Append>
+      </InputGroup>
+      </Col>
+      <Col>
         <Dropdown as={ButtonGroup}>
-        <Dropdown.Toggle id="dropdown-custom-1">Ikon</Dropdown.Toggle>
+        <Dropdown.Toggle id="dropdown-custom-1">Icon-Orang</Dropdown.Toggle>
         <Dropdown.Menu>
+
   <Dropdown.Header>SELAMAT DATANG</Dropdown.Header>
   
   <Dropdown.Item eventKey="2">
@@ -19,7 +39,9 @@ const Home =()=>{
   </Dropdown.Item>
 </Dropdown.Menu>
 </Dropdown>
-</div>
+</Col>
+</Row>
+</Container>
     )
 };
 export default Home;
