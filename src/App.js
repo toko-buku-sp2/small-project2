@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import { Switch, Route} from 'react-router-dom';
-// import BookPage from './pages/book/BookPage';
+import BookPage from './pages/book/bookPage2';
 import BookDetailPage from './pages/book/BookDetailPage';
-import Home from './components/homepage';
+import Home from './components/homePage';
 import Login from './components/login';
 import Register from './components/register'
 

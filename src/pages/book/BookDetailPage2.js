@@ -1,25 +1,20 @@
-// Belum Disesuaikan
-import React from 'react';
+// Belum Disesuaikan (Modul Halaman 41)
+import React,{useEffect} from 'react';
 import {
   Card,
   Button
 } from 'react-bootstrap';
+import {connect} from 'react-redux';
+import {getBookById} from '../../store/actions'
 import numeral from 'numeral';
 import { LinkContainer } from 'react-router-bootstrap';
 
 const BookDetailPage = (props) => {
-  const book = {
-    id: 5,
-    title: 'ini judul',
-    isbn: 'null',
-    authorName: 'ini author',
-    synopsis: 'ini sinopsis',
-    price: 84000.0,
-    bookStatus: 'OUT_OF_STOCK',
-  }
+    const {id} = props.match.params;
+    const {book}=props;
+    const bookStatus = book.bookStatus === 'FOR_SELL' ? 'info' : 'warning';
 
-  const bookStatus = book.bookStatus === 'FOR_SELL' ? 'info' : 'warning';
-
+    useEffect(()=>{props.getBookById(id);},[]);
   return (
     <div className="App">
       <div className="container">
@@ -71,5 +66,11 @@ const BookDetailPage = (props) => {
     </div>
   )
 };
+const mapStateToProps=(state)=>{
+    return{books: state.bookReducer.book}
+  }
+  const mapDispatchToProps=(dispatch)=>{
+    return{getBookById:(id)=>dispatch(getBookById(id))}
+  }
 
-export default BookDetailPage;
+export default connect(mapStateToProps, mapDispatchToProps)(BookDetailPage);
