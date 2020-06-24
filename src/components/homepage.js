@@ -1,6 +1,7 @@
 import React from 'react';
 import {Dropdown, Button, ButtonGroup,
-  InputGroup, FormControl, Container,Row,Col} from 'react-bootstrap';
+  InputGroup, FormControl, 
+  Container,Row,Col,Tabs,Tab,Carousel} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
 const Home =()=>{
@@ -11,8 +12,8 @@ const Home =()=>{
       <Col>
         <InputGroup className="mb-3">
         <FormControl
-          placeholder="Recipient's username"
-          aria-label="Recipient's username"
+          placeholder="Cari Buku"
+          aria-label="Search Book"
           aria-describedby="basic-addon2"
         />
         <InputGroup.Append>
@@ -41,7 +42,77 @@ const Home =()=>{
 </Dropdown>
 </Col>
 </Row>
+<Row>
+<Tabs defaultActiveKey="book">
+  <Tab eventKey="bookList" title="SEMUA KOLEKSI BUKU">
+    
+  </Tab>
+  <Tab eventKey="bookList" title="BUKU BARU">
+    
+  </Tab>
+  <Tab eventKey="bookList" title="BUKU PILIHAN">
+    
+  </Tab>
+    <Tab eventKey="bookList" title="NATIONAL BEST SELLER">
+    
+  </Tab>
+  <Tab eventKey="bookList" title="BUKU IMPORT">
+    
+  </Tab>
+  <Tab eventKey="bookList" title="SALE">
+    
+  </Tab>
+</Tabs>
+</Row>
+<Row>
+<Col>Produk Original & Terjamin</Col>
+<Col>Gratis Pengiriman</Col>
+<Col>Gratis Pengembalian</Col>
+</Row>
+<Row>
+<Carousel>
+      <Carousel.Item>
+        <img
+          className="gambar-slide"
+          src="holder.js/800x400?text=First slide&bg=373940"
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="gambar-slide"
+          src="holder.js/800x400?text=Second slide&bg=282c34"
+          alt="Second slide"
+        />
+
+        <Carousel.Caption>
+          <h3>Second slide label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="gambar-slide"
+          src="holder.js/800x400?text=Third slide&bg=20232a"
+          alt="Third slide"
+        />
+
+        <Carousel.Caption>
+          <h3>Third slide label</h3>
+          <p>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
+</Row>
 </Container>
+
+
     )
 };
 export default Home;
