@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return { login: state.user }
@@ -17,18 +18,12 @@ const Login = ({ login }) => {
   const onSubmitSignin = (e) => {
     if (email === login.email && password === login.password) 
     { 
-      // <Link to="/list-buku"></Link>
       alert('Anda telah Login.') }
     else { alert('Anda gagal login. Email dan/atau Password salah,'); e.preventDefault()}
   }
-  // const onSubmitSignin = () => {
-  //   email === login.email && password === login.password ?
-  //     alert('Anda telah Login.') :
-  //     alert('Anda gagal login. Email dan/atau Password salah,')
-  // }
-
+  
   return (
-    <Form onSubmit={() => onSubmitSignin()}>
+    <Form onSubmit={(e) => onSubmitSignin(e)}>
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="example@email.com"
@@ -40,11 +35,13 @@ const Login = ({ login }) => {
         <Form.Control type="password" placeholder="Password"
           onChange={(e) => setPassword(e.target.value)} />
       </Form.Group>
+      <Link to="/list-buku">
       <Button variant="primary" type="submit">
         Submit
         </Button>
+        </Link>
     </Form>
   )
-}
+  }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 // import { Redirect } from 'react-router-dom';
 
 const mapDispatchToProps = (dispatch) => {
@@ -14,47 +15,44 @@ const Register = (props) => {
   const [warningPassword, setWarningPassword] = useState('')
   const [retypePassword, setRetypePassword] = useState('')
   const [warningRetypePassword, setWarningRetypePassword] = useState('')
-  const [address, setAddress] = useState('')
-  const [warningAddress, setWarningAddress] = useState('')
   const [namaDepan, setNamaDepan] = useState('')
   const [warningNamaDepan, setWarningNamaDepan] = useState('')
   const [namaBelakang, setNamaBelakang] = useState('')
   const [warningNamaBelakang, setWarningNamaBelakang] = useState('')
-  const [wa, setWa] = useState('')
-  const [warningWa, setWarningWa] = useState('')
-  const onSubmitSignup = () => {
-    // e.preventDefault()
+  const onSubmitSignup = (e) => {
+    e.preventDefault();
     props.register({
       email,
       password,
       retypePassword,
-      address,
       namaDepan,
-      namaBelakang,
-      wa
+      namaBelakang
     });
+    if (!(!email.includes("@") &&
+      email.length < 8 &&
+      email.length > 30 &&
+      password.length < 8 &&
+      password.length > 30 &&
+      retypePassword !== password &&
+      namaDepan.length === 0 &&
+      namaDepan.length > 15 &&
+      namaBelakang.length === 0 &&
+      namaBelakang.length > 15
+    )) { } else { }
   }
   useEffect(() => {
 
     if (!email.includes("@")) setWarningEmail("Harus ada @-nya!");
     else if (email.length < 8) setWarningEmail("Terlalu Sedikit, Cuy!");
-    else if (email.length > 20) setWarningEmail("Kepanjangan, Broh!");
+    else if (email.length > 30) setWarningEmail("Kepanjangan, Broh!");
     else (setWarningEmail(""))
 
     if (password.length < 8) setWarningPassword("Terlalu Sedikit, Cuy!");
-    else if (password.length > 20) setWarningPassword("Kepanjangan, Broh!");
+    else if (password.length > 30) setWarningPassword("Kepanjangan, Broh!");
     else (setWarningPassword(""))
-
-    if (wa.length < 8) setWarningWa("Terlalu Sedikit, Cuy!");
-    else if (wa.length > 16) setWarningWa("Kepanjangan, Broh!");
-    else (setWarningWa(""))
 
     retypePassword !== password ? setWarningRetypePassword("Kok beda ya?")
       : setWarningRetypePassword("");
-
-    if (address.length < 10) setWarningAddress("Terlalu Sedikit, Cuy!");
-    else if (address.length > 40) setWarningAddress("Kepanjangan, Broh!");
-    else (setWarningAddress(""))
 
     if (namaDepan.length === 0) setWarningNamaDepan("Harus diisi ya!");
     else if (namaDepan.length > 15) setWarningNamaDepan("Kepanjangan, Broh!");
@@ -67,12 +65,16 @@ const Register = (props) => {
     email,
     password,
     retypePassword,
-    address,
     namaDepan,
-    namaBelakang,
-    wa])
+    namaBelakang])
   return (
-    <Form className = "signup" onSubmit = {()=> onSubmitSignup()}>
+    <Form onSubmit={(e) => onSubmitSignup(e)}>
+    <h1 className="signup-header">Cilsy</h1>
+    <div className="signup">
+    <p>Cilsy Book Online Store adalah Toko Buku Online dengan koleksi buku terbanyak di Indonesia</p>
+    <div className="signup-form" >
+      <h3>Sign up</h3>
+      <h6>atau <Link to="/login">sign in</Link></h6>
       <Form.Row>
         <Form.Group as={Col} controlId="formGridFirstName">
           <Form.Label>Nama Depan</Form.Label>
@@ -84,19 +86,6 @@ const Register = (props) => {
           <Form.Label>Nama Belakang</Form.Label>
           <Form.Control onChange={(e) => setNamaBelakang(e.target.value)} value={namaBelakang} />
           <div style={{ color: 'red' }}>{warningNamaBelakang}</div>
-        </Form.Group>
-      </Form.Row>
-
-      <Form.Row>
-        <Form.Group as={Col} controlId="formGridAddress">
-          <Form.Label>Address</Form.Label>
-          <Form.Control placeholder="Jalan BlahBlahBlah" onChange={(e) => setAddress(e.target.value)} value={address} />
-          <div style={{ color: 'red' }}>{warningAddress}</div>
-        </Form.Group>
-        <Form.Group controlId="formGridPhoneNumber">
-          <Form.Label>Nomor Whatsapp</Form.Label>
-          <Form.Control onChange={(e) => setWa(e.target.value)} value={wa} />
-          <div style={{ color: 'red' }}>{warningWa}</div>
         </Form.Group>
       </Form.Row>
 
@@ -122,15 +111,24 @@ const Register = (props) => {
           <div style={{ color: 'red' }}>{warningRetypePassword}</div>
         </Form.Group>
       </Form.Row>
-
-      <Form.Group id="formGridCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-
-      <Button variant="primary" type="submit">
-        Submit
+      <Form.Row>This page is protected by reCAPTCHA, and subject to the Google 
+      Privacy Policy and Terms of service</Form.Row>
+      <Form.Row>
+        <Button variant="primary" type="submit">
+          Sign up
   </Button>
-</Form >
-)}
+      </Form.Row>
+      <Form.Row>
+        <Link to="https://www.google.com/">
+          <Button variant="outline-dark" type="submit">
+            Sign up with Google
+            </Button>
+        </Link>
+      </Form.Row>
+      </div></div>
+    </Form>
+    
+  )
+}
 
 export default connect(null, mapDispatchToProps)(Register)
