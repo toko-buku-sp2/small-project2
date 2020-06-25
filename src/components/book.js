@@ -127,7 +127,9 @@ const Book = ({ book, doUpdate, doDelete }) => {
             <Button variant="success" onClick={() => setEdit(true)}>
               Edit
             </Button>{" "}
-            <Button variant="danger" onClick={()=>handleDelete(book.id)}>Delete</Button>
+            <Button variant="danger" onClick={()=>handleDelete(book.id)}>
+            Delete
+            </Button>
           </div>
         )}
     </Card.Body>

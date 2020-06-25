@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+
 
 const mapDispatchToProps = (dispatch) => {
   return { register: (data) => dispatch({ type: 'REGISTER', data }) }
@@ -40,7 +40,7 @@ const Register = (props) => {
       namaDepan.length <= 15 &&
       namaBelakang.length !== 0 &&
       namaBelakang.length <= 15
-    ) {setGoto(true)} else {alert("WOW!!!")}
+    ) { setGoto(true) } else { alert("Input Data tidak Valid! Mohon periksa kembali!") }
   }
   useEffect(() => {
 
@@ -121,7 +121,7 @@ const Register = (props) => {
               <Form.Row>
                 <Button variant="primary" type="submit">
                   Sign up
-  </Button>
+                  </Button>
               </Form.Row>
               <Form.Row>
                 <Link to="https://www.google.com/">
@@ -132,7 +132,7 @@ const Register = (props) => {
               </Form.Row>
             </div></div>
         </Form>
-        </div></div>
+      </div></div>
   )
 }
 

@@ -5,11 +5,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {createStore} from 'redux';
-import reducer from './store/reducers/users';
+import users from './store/reducers/reducers';
 import {Provider} from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-const store=createStore(reducer)
+const store=createStore(users)
 
 ReactDOM.render(
   <React.StrictMode>

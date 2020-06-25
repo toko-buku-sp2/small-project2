@@ -13,7 +13,7 @@ const BookPage = ()=>{
     price:80000,
     bookStatus:"FOR_SELL"
 },{
-    id:4,
+    id:5,
     title:"ini judul",
     isbn:"null",
     authorName:"ini author",
@@ -22,7 +22,7 @@ const BookPage = ()=>{
     price:80000,
     bookStatus:"FOR_SELL"
 },{
-    id:4,
+    id:6,
     title:"ini judul",
     isbn:"null",
     authorName:"ini author",
@@ -31,7 +31,7 @@ const BookPage = ()=>{
     price:80000,
     bookStatus:"FOR_SELL"
 },{
-    id:4,
+    id:7,
     title:"ini judul",
     isbn:"null",
     authorName:"ini author",
@@ -44,7 +44,7 @@ return (
     <div className="App">
       <header className="App-header">
         <div className="container m-3">
-          <h2>Redux-Books</h2>
+        <h1 className="signup-header">Cilsy</h1>
         </div>
         <div className="container">
           <div className="row">
