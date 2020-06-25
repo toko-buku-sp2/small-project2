@@ -2,7 +2,7 @@ const initialState = {
     isLogin: false,
     user: {}
 };
-const reducer = (state = initialState, action) => {
+const users = (state = initialState, action) => {
     if(action.type==='REGISTER'){
         return {
             ...state,
@@ -11,4 +11,4 @@ const reducer = (state = initialState, action) => {
     } 
     return state
 }
-export default reducer
+export default users
