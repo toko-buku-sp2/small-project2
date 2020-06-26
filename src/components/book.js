@@ -13,6 +13,7 @@ const Book = ({ book, doUpdate, doDelete }) => {
     useEffect(() => {
         setData({...book, bookCategory: {...book.bookCategory},
           id: book.id,
+          image: book.image,
           title: book.title,
           synopsis: book.synopsis,
           price: book.price,
@@ -21,6 +22,7 @@ const Book = ({ book, doUpdate, doDelete }) => {
           publicationDate: new Date()
         });
       }, []);
+      console.log(book.image,"Book.Image")
 
       const handleUpdate = () => {
         doUpdate(data);
@@ -39,7 +41,7 @@ const Book = ({ book, doUpdate, doDelete }) => {
           <Card>
             <Card.Img
               variant="top"
-              src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png"
+              src={book.image}
             />
             <Card.Body>
               <LinkContainer to={`/book/${book.id}`} style={{ cursor: 'pointer' }}>

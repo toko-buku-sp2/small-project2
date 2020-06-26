@@ -21,7 +21,7 @@ const BookDetailPage = (props) => {
         <Card className="pl-o p-5">
           <div className="row">
             <div className="col-md-3">
-              <LinkContainer to="/" style={{ cursor: 'pointer' }}>
+              <LinkContainer to="/book" style={{ cursor: 'pointer' }}>
                 <h2>&larr;</h2>
               </LinkContainer>
             </div>
