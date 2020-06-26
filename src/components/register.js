@@ -101,38 +101,40 @@ const Register = (props) => {
                     onChange={(e) => setEmail(e.target.value)} value={email} />
                   <div style={{ color: 'red' }}>{warningEmail}</div>
                 </Form.Group>
-
-                <Form.Group as={Col} controlId="formGridPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password"
-                    onChange={(e) => setPassword(e.target.value)} value={password} />
-                  <div style={{ color: 'red' }}>{warningPassword}</div>
-                </Form.Group>
-
-                <Form.Group as={Col} controlId="formGridPassword">
-                  <Form.Label>Re-Type Password</Form.Label>
-                  <Form.Control type="password" placeholder="Re-Type Password"
-                    onChange={(e) => setRetypePassword(e.target.value)} value={retypePassword} />
-                  <div style={{ color: 'red' }}>{warningRetypePassword}</div>
-                </Form.Group>
               </Form.Row>
-              <Form.Row>This page is protected by reCAPTCHA, and subject to the Google
+              
+              <Form.Row>
+              <Form.Group as={Col} controlId="formGridPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)} value={password} />
+                <div style={{ color: 'red' }}>{warningPassword}</div>
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridPassword">
+                <Form.Label>Re-Type Password</Form.Label>
+                <Form.Control type="password" placeholder="Re-Type Password"
+                  onChange={(e) => setRetypePassword(e.target.value)} value={retypePassword} />
+                <div style={{ color: 'red' }}>{warningRetypePassword}</div>
+              </Form.Group>
+              </Form.Row>
+            <Form.Row>This page is protected by reCAPTCHA, and subject to the Google
       Privacy Policy and Terms of service</Form.Row>
-              <Form.Row>
-                <Button variant="primary" type="submit">
-                  Sign up
+            <Form.Row>
+              <Button variant="primary" type="submit">
+                Sign up
                   </Button>
-              </Form.Row>
-              <Form.Row>
-                <Link to="https://www.google.com/">
-                  <Button variant="outline-dark" type="submit">
-                    Sign up with Google
+            </Form.Row>
+            <Form.Row>
+              <Link to="https://www.google.com/">
+                <Button as={Col} variant="outline-dark" type="link">
+                  Sign up with Google
             </Button>
-                </Link>
-              </Form.Row>
-            </div></div>
+              </Link>
+            </Form.Row>
+          </div></div>
         </Form>
-      </div></div>
+    </div></div>
   )
 }
 

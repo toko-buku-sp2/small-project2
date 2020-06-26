@@ -1,73 +1,63 @@
 // Belum Disesuaikan
 import React from 'react';
-import {
-  Card,
-  Button
-} from 'react-bootstrap';
-import numeral from 'numeral';
-import { LinkContainer } from 'react-router-bootstrap';
+import BookDetail from '../../components/bookDetail';
 
 const BookDetailPage = (props) => {
-  const book = {
-    id: 5,
-    title: 'ini judul',
-    isbn: 'null',
-    authorName: 'ini author',
-    synopsis: 'ini sinopsis',
-    price: 84000.0,
-    bookStatus: 'OUT_OF_STOCK',
-  }
-
-  const bookStatus = book.bookStatus === 'FOR_SELL' ? 'info' : 'warning';
+  const books=[{
+    id:4,
+    image:"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1355731828l/17086390.jpg",
+    title:"ini judul",
+    isbn:"null",
+    authorName:"ini author",
+    synopsis:"ini sinopsis",
+    publicationDate:"14-05-2020 07:00:00",
+    price:80000,
+    bookStatus:"FOR_SELL"
+},{
+    id:5,
+    image:"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1355731828l/17086390.jpg",
+    title:"ini judul",
+    isbn:"null",
+    authorName:"ini author",
+    synopsis:"ini sinopsis",
+    publicationDate:"14-05-2020 07:00:00",
+    price:81000,
+    bookStatus:"FOR_SELL"
+},{
+    id:6,
+    image:"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1355731828l/17086390.jpg",
+    title:"ini judul",
+    isbn:"null",
+    authorName:"ini author",
+    synopsis:"ini sinopsis",
+    publicationDate:"14-05-2020 07:00:00",
+    price:82000,
+    bookStatus:"FOR_SELL"
+},{
+    id:7,
+    image:"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1355731828l/17086390.jpg",
+    title:"ini judul",
+    isbn:"null",
+    authorName:"ini author",
+    synopsis:"ini sinopsis",
+    publicationDate:"14-05-2020 07:00:00",
+    price:83000,
+    bookStatus:"FOR_SELL"
+},]
 
   return (
     <div className="App">
-      <div className="container">
-        <Card className="pl-o p-5">
+      <header className="App-header">
+        <div className="container m-3">
+        <h1 className="signup-header">Cilsy</h1>
+        </div>
+        <div className="container">
           <div className="row">
-            <div className="col-md-3">
-              <LinkContainer to="/" style={{ cursor: 'pointer' }}>
-                <h2>&larr;</h2>
-              </LinkContainer>
-            </div>
-            <div className="col-md-6">
-              <h2 style={{ color: "#8052ff" }}>
-                {book.title}
-              </h2>
-            </div>
+            {books && books.map((val, key) => 
+              <BookDetail key={key} book={val}/> )}
           </div>
-          <div className="row">
-            <div className="col-md-8">
-              <img
-                className="img-fluid"
-                variant="top"
-                alt=""
-                src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png"
-                width={450}
-              />
-            </div>
-            <div className="col-md-4">
-              <Button
-                variant={bookStatus}
-                className="btn-sm font-weight-bold m-2"
-              >
-                {book.bookStatus}
-              </Button>
-              <h4
-                className="my-2 font-weight-bold"
-                style={{ color: "#8052ff" }}
-              >
-                {`Rp ${numeral(book.price).format("0,0")}`}
-              </h4>
-              <h5 className="my-3 text-dark text-left">
-                Author: {book.authorName}
-              </h5>
-              <h6 className="text-left">Book Synopsis :</h6>
-              <p className="text-black-50 text-justify">{book.synopsis}</p>
-            </div>
-          </div>
-        </Card>
-      </div>
+        </div>
+      </header>
     </div>
   )
 };
