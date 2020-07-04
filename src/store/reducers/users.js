@@ -3,12 +3,21 @@ const initialState = {
     user: {}
 };
 const users = (state = initialState, action) => {
-    if(action.type==='REGISTER'){
-        return {
-            ...state,
-            user:action.data
-        }
-    } 
-    return state
+    console.log(state, "User")
+    switch(action.type){
+        case "REGISTER":
+    return {
+        ...state,
+        user:action.data
+            };
+        case "LOGIN":
+    return {
+        ...state,
+        user:action.data,
+        isLogin: true
+            }; 
+    default: 
+        return state
+    };   
 }
 export default users

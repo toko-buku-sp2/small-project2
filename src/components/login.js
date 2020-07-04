@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
 
-  return { isLogin: (data) => dispatch({ type: 'REGISTER', data }) }
+  return { isLogin: (data) => dispatch({ type: 'LOGIN', data }) }
 }
 
 const Login = ({ login }) => {

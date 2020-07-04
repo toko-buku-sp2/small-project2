@@ -15,7 +15,7 @@ const BookPage = ()=>{
     bookStatus:"FOR_SELL"
 },{
     id:5,
-    image:"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1355731828l/17086390.jpg",
+    image:"https://blog.mizanstore.com/wp-content/uploads/2019/12/sebuah-seni-untuk-bersikap-bodo-amat.jpg",
     title:"ini judul",
     isbn:"null",
     authorName:"ini author",

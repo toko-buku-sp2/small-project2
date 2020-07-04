@@ -70,11 +70,11 @@ const Home =()=>{
 <Col>Gratis Pengembalian</Col>
 </Row>
 <Row>
-<Carousel>
+<Carousel as={Col}>
       <Carousel.Item>
         <img
           className="gambar-slide"
-          src="holder.js/800x400?text=First slide&bg=373940"
+          src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1355731828l/17086390.jpg"
           alt="First slide"
         />
         <Carousel.Caption>
@@ -85,7 +85,7 @@ const Home =()=>{
       <Carousel.Item>
         <img
           className="gambar-slide"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
+          src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1355731828l/17086390.jpg"
           alt="Second slide"
         />
 
@@ -97,7 +97,7 @@ const Home =()=>{
       <Carousel.Item>
         <img
           className="gambar-slide"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
+          src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1355731828l/17086390.jpg"
           alt="Third slide"
         />
 
